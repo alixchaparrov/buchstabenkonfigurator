@@ -1,23 +1,72 @@
 // Stile für die Metabox des Buchstabenkonfigurators
+
+// Container für die gesamte Metabox
+.bk-meta-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+// Buchstabenvorschau
+.bk-letter-preview {
+  font-size: 72px;
+  text-align: center;
+  margin: 20px 0;
+  font-weight: bold;
+  line-height: 1;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Einzelne Felder
 .bk-meta-field {
     margin-bottom: 15px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border-left: 4px solid #4a6da7;
 
      // Stile für Etiketten
     label {
         display: block;
         font-weight: 600;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
+        color: #23282d;
+        font-size: 14px;
     }
      // Stile für Textfelder
     input[type="text"]{
         width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+
+        &:focus{
+          border-color: #4a6da7;
+          box-shadow: 0 0 2px rgba(74, 109, 167, 0.8);
+          outline: none;
+        }
     }
+    // Stile für Selectfelder
     select {
         width: 100%;
         max-width: 25em;
-        padding: 5px;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        background-color: white;
+      }
+
+      // Hilfetext
+      .bk-field-hint {
+        color: #666;
+        font-style: italic;
+        margin-top: 5px;
+        font-size: 12px;
       }
       
+       // Datum-Anzeige
       span {
         &.date-display {
           font-style: italic;
@@ -28,9 +77,110 @@
 // Stile für die Farbvorschau
 .bk-color-preview {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     margin-left: 10px;
     vertical-align: middle;
     border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+// Flex-Container für Farbe und Vorschau
+.color-input-container {
+  display: flex;
+  align-items: center;
+  
+  input {
+    flex: 1;
+    margin-right: 10px;
+  }
+}
+
+// Farbauswahl Stile
+.color-family-selector {
+  margin-bottom: 15px;
+  
+  select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+}
+
+.color-palette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.color-option {
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+  
+  &.active {
+    border-color: #000;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.selected-color-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  
+  .color-preview {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+  }
+  
+  .color-code {
+    font-family: monospace;
+    font-size: 14px;
+  }
+}
+
+// Glänzend-Effekt für die Vorschau
+.bk-letter-preview {
+  position: relative;
+  transition: all 0.3s ease;
+  
+  &.glanzend-effect {
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, 
+                  rgba(255,255,255,0.3) 0%, 
+                  rgba(255,255,255,0.5) 25%, 
+                  rgba(255,255,255,0.3) 50%, 
+                  rgba(255,255,255,0) 50%, 
+                  rgba(255,255,255,0.2) 75%, 
+                  rgba(255,255,255,0.4) 100%);
+      pointer-events: none;
+      border-radius: 5px;
+    }
+  }
+  
+  // Matt 
+  &:not(.glanzend-effect) {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  }
 }
