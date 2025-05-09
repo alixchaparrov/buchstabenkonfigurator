@@ -1,0 +1,36 @@
+// Stile für die Metabox des Buchstabenkonfigurators
+.bk-meta-field {
+    margin-bottom: 15px;
+
+     // Stile für Etiketten
+    label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+     // Stile für Textfelder
+    input[type="text"]{
+        width: 100%;
+    }
+    select {
+        width: 100%;
+        max-width: 25em;
+        padding: 5px;
+      }
+      
+      span {
+        &.date-display {
+          font-style: italic;
+          color: #666;
+        }
+      }
+}
+// Stile für die Farbvorschau
+.bk-color-preview {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+}
